@@ -4,7 +4,7 @@ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -ivh epel-release-latest-6.noarch.rpm
 
 yum -y update
-yum -y install vim lrzsz git 
+yum -y install vim lrzsz
 
 cp ./MariaDB.repo /etc/yum.repos.d
 cp ./nginx.repo /etc/yum.repos.d
