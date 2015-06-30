@@ -9,14 +9,9 @@ cp ./nginx.repo /etc/yum.repos.d
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 
 yum -y update
-yum -y install vim lrzsz
-
 yum -y install MariaDB-server MariaDB-client
 yum -y install nginx php54w-fpm php54w-mysql php54w-pecl-zendopcache php54w-xml php54w-mbstring php54w-pdo php54w-gd
-
-yum -y install vsftpd
-
-yum -y install fail2ban htop
+yum -y install fail2ban htop tmux vsftpd vim lrzsz
 
 cp .tmux.conf ~/
 cp .vimrc ~/
