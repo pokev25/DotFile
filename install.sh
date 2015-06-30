@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/bash
 
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -ivh epel-release-latest-6.noarch.rpm
