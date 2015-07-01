@@ -1,4 +1,4 @@
-# php-fpm 설정
+## php-fpm 설정
 
     vim /etc/php-fpm/www.conf
 
@@ -12,7 +12,7 @@
     group = nginx
 
 
-nginx 설정 (homestead 설정)
+## nginx 설정 (homestead 설정)
 
     server {
         listen 80;
