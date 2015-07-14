@@ -11,8 +11,13 @@
     user = nginx
     group = nginx
 
+## php-fpm 세션 생성 경로 확인
 
-## nginx 설정 (homestead 설정)
+    /var/lib/php/session
+    chown nginx:nginx session
+
+
+## nginx 설정 (homestead 설정을 사용함)
 
     server {
         listen 80;
