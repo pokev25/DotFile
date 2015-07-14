@@ -1,3 +1,13 @@
+## geoip
+```
+yum install geoip perl-Geo-IP
+mkdir /usr/local/geo
+cd /usr/local/geo
+wget  http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+wget  http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+gzip -d GeoIP.dat.gz
+gzip -d GeoLiteCity.dat.gz
+``` 
 ## goaccess
 install
 http://goaccess.io/download
@@ -16,11 +26,20 @@ vim /usr/local/etc/goaccess.conf
 time-format %T
 date-format %d/%b/%Y
 log-format %h %^[%d:%t %^] "%r" %s %b "%R" "%u"
+
+std-geoip true
+geoip-database /usr/local/geo/GeoLiteCity.dat
 ```
 
 cron : 실시간 로그 10분마다 index로 생성
 ```
-*/10 * * * * cat /var/log/nginx/access.log* | goaccess -a > /var/www/log/index.html
+crontab -e
+*/10 * * * * /root/bin/goaccess-10.sh
+
+vim goaccess-10.sh
+#!/bin/bash
+cat /var/log/nginx/access.log* | /usr/local/bin/goaccess -a > /var/www/log/report.html
+mv /var/www/log/report.html /var/www/log/index.html
 ```
 goaccess-weekly : 압축 로그 분석 일주일마다 월별 파일로 생성
 ```
