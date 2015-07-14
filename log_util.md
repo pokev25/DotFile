@@ -27,8 +27,6 @@ unzip lnav-0.7.3-linux-64bit.zip
 cp lnav-0.7.3/lnav /usr/local/bin
 ```
 
-#update test
-
 
 
 
