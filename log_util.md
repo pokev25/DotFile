@@ -17,7 +17,22 @@ time-format %T
 date-format %d/%b/%Y
 log-format %h %^[%d:%t %^] "%r" %s %b "%R" "%u"
 ```
+mothly html output
+```
+zcat `find /var/log/nginx/ -name "access.log*.gz" -mtime -35` | goaccess > /var/www/log/monthly-$(date +'%Y.%m').html
+```
 
+cron : 실시간 로그 10분마다 index로 생성
+```
+*/10 * * * * cat /var/log/nginx/access.log* | goaccess -a > /var/www/log/index.html
+```
+goaccess-weekly : 압축 로그 분석 일주일마다 월별 파일로 생성
+```
+#!/bin/bash
+
+DATE=$(date +'%Y.%m')
+zcat `find /var/log/nginx/ -name "access.log*.gz" -mtime -35` | goaccess > /var/www/log/monthly-$DATE.html
+```
 
 ## lnav
 ```
