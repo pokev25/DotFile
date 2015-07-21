@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# epel, remi  저장소 추가
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-6.rpm
+# el, epel, remi  저장소 추가
+EL_REPO ='http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm'
+EPEL ='https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm'
+REMI ='http://rpms.remirepo.net/enterprise/remi-release-6.rpm'
+
+yum -y --nogpgcheck install "${EL_REPO}" >/dev/null
+yum -y --nogpgcheck install "${EPEL}" >/dev/null
+yum -y --nogpgcheck install "${REMI}" >/dev/null
 
 # mariadb, nginx 저장소 추가
 cp ./MariaDB_10.repo /etc/yum.repos.d/MariaDB.repo
