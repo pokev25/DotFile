@@ -5,7 +5,7 @@ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 
 # mariadb, nginx 저장소 추가
-cp ./MariaDB.repo /etc/yum.repos.d
+cp ./MariaDB_55.repo /etc/yum.repos.d/MariaDB.repo
 cp ./nginx.repo /etc/yum.repos.d
 
 # 기본 설치 프로그램
