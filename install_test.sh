@@ -7,16 +7,13 @@ REMI=http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 yum -y --nogpgcheck install ${EPEL} >/dev/null
 yum -y --nogpgcheck install ${REMI} >/dev/null
 
-# mariadb, nginx 저장소 추가
-#cp ./MariaDB_10.repo /etc/yum.repos.d/MariaDB.repo
+# nginx 저장소 추가
 cp ./nginx.repo /etc/yum.repos.d
 
 # 기본 설치 프로그램
 yum -y install yum-utils
 yum-config-manager --enable remi
 yum -y update
-#yum -y install MariaDB-server MariaDB-client
-#yum -y install httpd
 #yum -y install nginx
 yum -y install php-cli php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
 #yum -y install fail2ban htop vsftpd 
