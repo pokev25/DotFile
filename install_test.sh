@@ -18,7 +18,7 @@ yum -y update
 #yum -y install MariaDB-server MariaDB-client
 #yum -y install httpd
 #yum -y install nginx
-yum -y install php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
+yum -y install php-cli php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
 #yum -y install fail2ban htop vsftpd 
 yum -y install  tmux vim lrzsz wget lftp
 #yum -y install java-1.8.0-openjdk-devel
