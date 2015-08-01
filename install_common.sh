@@ -8,7 +8,7 @@ yum -y --nogpgcheck install ${EPEL} >/dev/null
 yum -y --nogpgcheck install ${REMI} >/dev/null
 
 #Mysql common Driver 설치용
-cp ./MariaDB_55.repo /etc/yum.repos.d/MariaDB.repo
+cp ./MariaDB_10.repo /etc/yum.repos.d/MariaDB.repo
 
 # 기본 설치 프로그램
 yum -y install yum-utils
