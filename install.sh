@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # epel, webtatic 저장소 추가
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+#rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+yum -y install epel-release
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 
 # mariadb, nginx 저장소 추가
