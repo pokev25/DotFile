@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # epel, remi  저장소 추가
-EPEL=https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+#EPEL=https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 REMI=http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
-yum -y --nogpgcheck install ${EPEL} >/dev/null
+#yum -y --nogpgcheck install ${EPEL} >/dev/null
+yum -y install epel-release
 yum -y --nogpgcheck install ${REMI} >/dev/null
 
 #Mysql common Driver 설치용
