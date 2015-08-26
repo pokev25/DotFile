@@ -1,6 +1,6 @@
 yum -y install lsyncd
 
-su -i 
+sudo -i 
 ssh-keygen
 ssh-copy-id 192.168.33.12
 
