@@ -1,11 +1,9 @@
 #!/bin/bash
 
 # el, epel, remi  저장소 추가
-EPEL=https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-REMI=http://rpms.remirepo.net/enterprise/remi-release-6.rpm
-
-yum -y --nogpgcheck install ${EPEL} >/dev/null
-yum -y --nogpgcheck install ${REMI} >/dev/null
+# add epel, remi repo 
+REMI=http://remi.kazukioishi.net/enterprise/remi-release-6.rpm
+yum -y install ${REMI}
 
 # nginx 저장소 추가
 cp ./nginx.repo /etc/yum.repos.d
