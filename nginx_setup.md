@@ -1,6 +1,6 @@
 ## php-fpm 설정
 
-    vim /etc/php-fpm/www.conf
+    vim /etc/php-fpm.d/www.conf
 
     listen = /var/run/php-fpm/php5-fpm.sock
 
@@ -21,6 +21,8 @@
 
     server {
         listen 80;
+	listen 443 ssl;
+
         server_name code.app;
         root "/home/public";
 
@@ -100,5 +102,5 @@
         ssl_certificate_key /etc/nginx/ssl/code.app.key;
     }
 
-
+## nginx load blancde
 
