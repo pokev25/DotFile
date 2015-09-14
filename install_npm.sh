@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # add epel, remi repo 
-yum -y install epel-release
-
-REMI=http://rpms.remirepo.net/enterprise/remi-release-6.rpm
-yum -y --nogpgcheck install ${REMI} >/dev/null
+REMI=http://remi.kazukioishi.net/enterprise/remi-release-6.rpm
+yum -y install ${REMI}
 
 # add mariadb, nginx repo
 cp ./MariaDB_55.repo /etc/yum.repos.d/MariaDB.repo

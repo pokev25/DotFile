@@ -2,7 +2,7 @@
 
     vim /etc/php-fpm.d/www.conf
 
-    listen = /var/run/php-fpm/php5-fpm.sock
+    listen = /var/run/php-fpm.d/php5-fpm.sock
 
     listen.owner = nginx
     listen.group = nginx
@@ -16,6 +16,13 @@
     /var/lib/php/session
     chown nginx:nginx session
 
+## nginx gzip
+    gzip             on;
+    gzip_comp_level  2;
+    gzip_min_length  1000;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+    
 
 ## nginx 설정 (homestead 설정을 사용함)
 
