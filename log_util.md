@@ -12,6 +12,12 @@ gzip -d GeoLiteCity.dat.gz
 install
 http://goaccess.io/download
 
+if need dependency
+
+```
+yum install geoip-devel ncurses-devel glib2-devel zlib-devel bzip2-devel
+```
+
 ```
 wget http://tar.goaccess.io/goaccess-0.9.4.tar.gz
 tar -xzvf goaccess-0.9.4.tar.gz
