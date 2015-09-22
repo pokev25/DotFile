@@ -13,9 +13,9 @@ install
 http://goaccess.io/download
 
 ```
-wget http://tar.goaccess.io/goaccess-0.9.2.tar.gz
-tar -xzvf goaccess-0.9.2.tar.gz
-cd goaccess-0.9.2/
+wget http://tar.goaccess.io/goaccess-0.9.4.tar.gz
+tar -xzvf goaccess-0.9.4.tar.gz
+cd goaccess-0.9.4/
 ./configure --enable-geoip --enable-utf8
 make
 make install
@@ -31,17 +31,17 @@ std-geoip true
 geoip-database /usr/local/geo/GeoLiteCity.dat
 ```
 
-cron : 실시간 로그 10분마다 index로 생성
+cron : 30분마다 로그 생성
 ```
 crontab -e
-*/10 * * * * /root/bin/goaccess-10.sh
+*/30 * * * * /root/bin/goaccess-log.sh
 
-vim goaccess-10.sh
+vim goaccess-log.sh
 #!/bin/bash
 cat /var/log/nginx/access.log* | /usr/local/bin/goaccess -a > /var/www/log/report.html
 mv /var/www/log/report.html /var/www/log/index.html
 ```
-goaccess-weekly : 압축 로그 분석 일주일마다 월별 파일로 생성
+goaccess-weekly : 압축 로그 분석 
 ```
 #!/bin/bash
 
