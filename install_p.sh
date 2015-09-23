@@ -18,7 +18,3 @@ yum -y install php-cli php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstri
 yum -y install fail2ban htop vsftpd 
 yum -y install tmux vim lrzsz wget lftp
 yum -y install java-1.8.0-openjdk-devel
-
-wget http://repos.fedorapeople.org/repos/jkaluza/httpd24/epel-httpd24.repo -O /etc/yum.repos.d/epel-httpd24.repo
-
-yum -y install httpd24
