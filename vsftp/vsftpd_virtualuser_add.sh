@@ -134,7 +134,7 @@ echo " Login Shell                     : $SHELL "
 # vsftpd_virtualuser_config.tpl file.
 #
 cp $FTPCONF/users/my_ftp_virtual_user $LOCALPATH/vsftpd_virtualuser_config.tpl.1
-sed -i -e "s/USERNAME/$USERNAME/g;" $LOCALPATH/vsftpd_virtualuser_config.tpl.1
+sed -i -e "s/my_ftp_virtual_user/$USERNAME/g;" $LOCALPATH/vsftpd_virtualuser_config.tpl.1
 cat $LOCALPATH/vsftpd_virtualuser_config.tpl.1 > $FTPCONF/users/$USERNAME
 rm -f $LOCALPATH/vsftpd_virtualuser_config.tpl.1
 
