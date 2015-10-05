@@ -1,8 +1,8 @@
 ## geoip
 ```
 yum install geoip perl-Geo-IP
-mkdir /usr/local/geo
-cd /usr/local/geo
+mkdir /usr/local/share/GeoIP
+cd /usr/local/share/GeoIP
 wget  http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
 wget  http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 gzip -d GeoIP.dat.gz
@@ -34,7 +34,7 @@ date-format %d/%b/%Y
 log-format %h %^[%d:%t %^] "%r" %s %b "%R" "%u"
 
 std-geoip true
-geoip-database /usr/local/geo/GeoLiteCity.dat
+geoip-database /usr/local/share/GeoIP/GeoLiteCity.dat
 ```
 
 cron : 30분마다 로그 생성
