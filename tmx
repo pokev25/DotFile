@@ -5,7 +5,7 @@ if [[ -n "$TMUX" ]]; then
     exit
 fi
 
-base_session=`hostname`
+base_session=$(hostname | sed 's/\./_/g')
 list_sessions=`tmux list-sessions 2>/dev/null | awk -F: '{print $1}'`
 
 if [[ -z "$list_sessions" ]]; then
