@@ -27,15 +27,22 @@ php-fpm 세션 생성 경로 확인
 chown nginx:nginx session
 ```
 
-nginx gzip
+nginx conf
 ----------
 
+gzip
 ```
 gzip             on;
 gzip_comp_level  2;
 gzip_min_length  1000;
 gzip_proxied     expired no-cache no-store private auth;
 gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+```
+
+nginx worker process
+```
+worker_processes  4;
+worker_cpu_affinity 0001 0010 0100 1000;
 ```
 
 nginx 설정 (homestead 설정을 일부 수정 80과 443 설정을 하나로함)
@@ -74,7 +81,7 @@ listen 443 ssl;
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param REMOTE_ADDR $http_x_real_ip;  
+        fastcgi_param REMOTE_ADDR $http_x_real_ip;
         fastcgi_intercept_errors off;
         fastcgi_buffer_size 16k;
         fastcgi_buffers 4 16k;

@@ -1,14 +1,11 @@
 #!/bin/bash
 
-function copy10repo {
-  cp ./MariaDB_10.repo /etc/yum.repos.d/MariaDB.repo
-}
+#check mariadb.repo
+#https://downloads.mariadb.org/mariadb/repositories
 
-function copy5repo {
-  cp ./MariaDB_55.repo /etc/yum.repos.d/MariaDB.repo
-}
+cp ./mariadb.repo /etc/yum.repos.d/mariadb.repo
 
-copy10repo
 yum -y update
 yum -y install MariaDB-server MariaDB-client
 
+systemctl start mariadb
