@@ -1,31 +1,4 @@
-php-fpm 설정
-------------
 
-```
-vim /etc/php-fpm.d/www.conf
-
-listen = /var/run/php-fpm/php5-fpm.sock
-
-listen.owner = nginx
-listen.group = nginx
-listen.mode = 0666
-
-user = nginx
-group = nginx
-
-pm.max_children = 200
-pm.max_requests = 500
-
-security.limit_extensions = .php
-```
-
-php-fpm 세션 생성 경로 확인
----------------------------
-
-```
-/var/lib/php/session
-chown nginx:nginx session
-```
 
 nginx conf
 ----------
@@ -97,5 +70,9 @@ listen 443 ssl;
 }
 ```
 
-nginx load blancde
+nginx 문제수정
 ------------------
+
+* 405 에러
+ static 파일을 post로 요청하면 405에러 발생하면 다음설정을 추가
+ error_page 405 = $uri;

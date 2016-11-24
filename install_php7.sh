@@ -15,3 +15,6 @@ yum -y update
 
 #install php
 yum -y install php-cli php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
+
+systemctl enable php-fpm
+systemctl start php-fpm
