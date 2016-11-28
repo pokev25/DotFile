@@ -31,10 +31,12 @@ php.ini
 -------
 
 ```
+expose_php = off
+
 max_execution_time = 300
 memory_limit = 128M
 post_max_size = 50M
-pload_max_filesize = 30M
+upload_max_filesize = 30M
 
 date.timezone = "Asia/Seoul"
 ```
