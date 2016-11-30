@@ -60,3 +60,9 @@ chcon -t httpd_sys_rw_content_t /data/www/html/sites/mysite/logs -R
 
 enforce 0 : 로그만 남김
 /var/log/audit/autit.log 확인
+
+
+dnslookup 지연문제 : 재부팅하면 설정 확인필요함
+--
+vim /etc/resolv.conf
+options single-request-reopen

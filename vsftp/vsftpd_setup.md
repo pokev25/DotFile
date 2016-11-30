@@ -24,9 +24,10 @@ CentOS 7 vsftp 3.*  로그인 에러 발생시
 allow_writeable_chroot=YES
 ```
 
-홈계정에 쓰기가 안될때
+selinux 설정
 ```
-getsebool -a | grep ^ftp_home_dir
+getsebool -a | grep ftp
 ftp_home_dir --> off
 setsebool -P ftp_home_dir on
+setsebool -P allow_ftpd_full_access on
 ```
