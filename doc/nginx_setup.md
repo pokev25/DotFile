@@ -24,7 +24,7 @@ nginx 설정 (homestead 설정을 일부 수정 80과 443 설정을 하나로함
 ```
 server {
     listen 80;
-listen 443 ssl;
+    listen 443 ssl;
 
     server_name code.app;
     root "/home/public";
@@ -76,3 +76,19 @@ nginx 문제수정
 * 405 에러
  static 파일을 post로 요청하면 405에러 발생하면 다음설정을 추가
  error_page 405 = $uri;
+
+
+letsencrypt ssl 설정
+https://mozilla.github.io/server-side-tls/ssl-config-generator/
+```
+listen 443 ssl;
+ssl_certificate /etc/letsencrypt/live/{domain}/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/{domain}/privkey.pem;
+ssl_dhparam /etc/nginx/ssl/yourdomain.com.pem;
+```
+
+HSTS 설정
+```
+# HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
+add_header Strict-Transport-Security max-age=15768000;
+```

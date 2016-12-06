@@ -1,10 +1,9 @@
 oh-my-zsh 설치 후 설정
 ======================
 
--	zsh config`
-	vim .zshrc
-	`
+-	zsh config
 
+vim .zshrc
 ```
 # Theme 를 둘 중 하나 설정 한다.
 ZSH_THEME="ys"

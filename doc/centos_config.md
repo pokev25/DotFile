@@ -54,8 +54,10 @@ selinux
 쓰기 문제
 https://blog.lysender.com/2015/07/centos-7-selinux-php-apache-cannot-writeaccess-file-no-matter-what/
 ```
-chcon -t httpd_sys_content_t /data/www/html/sites/mysite -R
-chcon -t httpd_sys_rw_content_t /data/www/html/sites/mysite/logs -R
+chcon -Rt httpd_sys_content_t /data/www/html/sites/mysite
+chcon -Rt httpd_sys_rw_content_t /data/www/html/sites/mysite/logs
+
+chcon -Rt httpd_sys_content_t /var/www/html
 ```
 
 enforce 0 : 로그만 남김
@@ -66,3 +68,8 @@ dnslookup 지연문제 : 재부팅하면 설정 확인필요함
 --
 vim /etc/resolv.conf
 options single-request-reopen
+
+
+방화벽
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
