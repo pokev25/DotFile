@@ -12,7 +12,7 @@ yum -y install yum-utils
 yum-config-manager --enable remi
 yum -y update
 yum -y install httpd
-yum -y install php php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
+yum -y install php php-mysqlnd php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
 
 #yum -y install fail2ban htop vsftpd
 #yum -y install tmux vim lrzsz wget lftp

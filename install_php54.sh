@@ -14,4 +14,4 @@ yum-config-manager --enable remi
 yum -y update
 
 #install php
-yum -y install php-cli php-fpm php-mysql php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
+yum -y install php-cli php-fpm php-mysqlnd php-pecl-zendopcache php-xml php-mbstring php-pdo php-gd
