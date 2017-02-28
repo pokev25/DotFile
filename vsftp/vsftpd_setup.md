@@ -31,3 +31,6 @@ ftp_home_dir --> off
 setsebool -P ftp_home_dir on
 setsebool -P allow_ftpd_full_access on
 ```
+
+systemctl start vsftpd
+systemctl enable vsftpd
