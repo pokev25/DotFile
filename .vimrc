@@ -7,7 +7,7 @@ endif
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = ""
+let g:vim_bootstrap_langs = "javascript,html"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -67,10 +67,23 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
-Plug 'romainl/apprentice'
+Plug 'https://github.com/romainl/Apprentice.git'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
+
+" html
+"" HTML Bundle
+Plug 'hail2u/vim-css3-syntax'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'tpope/vim-haml'
+Plug 'mattn/emmet-vim'
+
+
+" javascript
+"" Javascript Bundle
+Plug 'jelera/vim-javascript-syntax'
+
 
 "*****************************************************************************
 "*****************************************************************************
@@ -124,7 +137,12 @@ set noswapfile
 
 set fileformats=unix,dos,mac
 set showcmd
-set shell=/bin/sh
+
+if exists('$SHELL')
+    set shell=$SHELL
+else
+    set shell=/bin/sh
+endif
 
 " session management
 let g:session_directory = "~/.vim/session"
@@ -429,6 +447,21 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
+
+" html
+" for html files, 2 spaces
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+
+
+" javascript
+let g:javascript_enable_domhtmlcss = 1
+
+" vim-javascript
+augroup vimrc-javascript
+  autocmd!
+  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
+augroup END
+
 
 "*****************************************************************************
 "*****************************************************************************
