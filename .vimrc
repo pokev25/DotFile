@@ -68,6 +68,7 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 Plug 'https://github.com/romainl/Apprentice.git'
+Plug 'ayu-theme/ayu-vim'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
@@ -159,7 +160,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-  colorscheme apprentice
+  colorscheme ayu
 endif
 
 set mousemodel=popup
