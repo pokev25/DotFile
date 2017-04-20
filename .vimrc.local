@@ -1,3 +1,2 @@
-set nofoldenable                " disable code folding
-let g:DisableAutoPHPFolding = 1 " disable PIV's folding
-
+" color scheme
+colorscheme ayu
