@@ -8,7 +8,7 @@ if [$1 = 'root']; then
 fi
 
 # vim : from vimbootstrap
-curl 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=ruby&langs=python&langs=perl&editor=vim' > ~/.vimrc
+curl 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=python&langs=perl&editor=vim' > ~/.vimrc
 cp .vimrc.local ~/
 cp .vimrc.local.bundles ~/
 
