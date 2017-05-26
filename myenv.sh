@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 # tmux
 cp .tmux.conf ~/
-if [$1 = 'root']; then
+if [ "$1" = "root" ]; then
   cp tmx /usr/local/bin
   chmod +x /usr/local/bin/tmx
 fi
