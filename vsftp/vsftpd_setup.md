@@ -29,8 +29,8 @@ selinux 설정
 ```
 getsebool -a | grep ftp
 ftp_home_dir --> off
-setsebool -P ftp_home_dir on
-setsebool -P allow_ftpd_full_access on
+setsebool -P tftp_home_dir on
+setsebool -P ftpd_full_access on
 ```
 
 systemctl start vsftpd
