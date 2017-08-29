@@ -1,2 +1,4 @@
 " color scheme
 colorscheme ayu
+
+set clipboard=unnamed " use OS clipboard
