@@ -4,7 +4,7 @@ USER_BIN=/usr/local/bin
 
 CHECK=$(command -v vim)
 
-if [ CHECK = "" ]; then
+if [ "$CHECK" = "" ]; then
   echo "check vim install"
   exit
 fi
@@ -23,9 +23,9 @@ fi
 
 # vim : from vimbootstrap
 if [ ! -f ~/.vimrc ]; then
-curl 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=python&langs=perl&editor=vim' > ~/.vimrc
-cp .vimrc.local ~/
-cp .vimrc.local.bundles ~/
+  curl 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=python&langs=perl&editor=vim' > ~/.vimrc
+  cp .vimrc.local ~/
+  cp .vimrc.local.bundles ~/
 fi
 
 vim +PlugInstall +qall
