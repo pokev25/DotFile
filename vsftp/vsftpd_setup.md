@@ -16,7 +16,7 @@ touch /etc/vsftpd/chroot_list
 
 ```
 firewall-cmd --permanent --add-service=ftp
-firewall-cmd --permanent --add-port=33000-34000
+firewall-cmd --permanent --add-port=33000-34000/tcp
 firewall-cmd --reload
 ```
 
