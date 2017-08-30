@@ -1,7 +1,12 @@
 #!/bin/bash
 
+CHECK=$(command -v vim)
 #zsh
-yum -y install zsh
+if [ $EUID == 0 ]; then
+  if [ "$CHECK" = "" ]; then
+    yum -y install zsh
+  fi
+fi
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
