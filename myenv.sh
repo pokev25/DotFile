@@ -14,8 +14,8 @@ if [ ! -f ~/.tmux.conf ]; then
   cp .tmux.conf ~/
 fi
 
-if [ "$1" = "root" ]; then
-  if [ ! -f $USER_BIN/.tmux.conf ]; then
+if [ $EUID -e 0 ]; then
+  if [ ! -f $USER_BIN/tmx ]; then
     cp tmx $USER_BIN
     chmod +x $USER_BIN/tmx
   fi
