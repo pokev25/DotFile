@@ -35,3 +35,10 @@ setsebool -P ftpd_full_access on
 
 systemctl start vsftpd
 systemctl enable vsftpd
+
+## add virtual user
+
+```sh
+#  실행 후 사용자 정보 입력
+vsftpd_virtualuser_add.sh
+```
