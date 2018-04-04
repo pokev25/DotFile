@@ -1,4 +1,6 @@
 " color scheme
 colorscheme jellybeans
 
+let g:airline_theme = 'jellybeans'
+
 set clipboard=unnamed " use OS clipboard
