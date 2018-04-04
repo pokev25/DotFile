@@ -1,2 +1,2 @@
 "" Color
-Plug 'ayu-theme/ayu-vim'
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
