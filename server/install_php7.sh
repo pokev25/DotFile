@@ -10,6 +10,7 @@ yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 #enable remirepo use single php
 yum -y install yum-utils
 yum-config-manager --enable remi-php70
+yum-config-manager --enable remi-php72
 
 yum -y update
 
