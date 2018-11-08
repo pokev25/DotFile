@@ -9,3 +9,5 @@ yum -y update
 yum -y install MariaDB-server MariaDB-client
 
 systemctl start mariadb
+systemctl enable mariadb
+mysql_secure_installation
