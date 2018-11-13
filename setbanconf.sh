@@ -31,4 +31,7 @@ function copyconf() {
 
 if [ -d /etc/fail2ban ]; then
   copyconf
+  echo "copy complete"  
+else
+  echo "first install fail2ban"
 fi
