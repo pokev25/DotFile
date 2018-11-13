@@ -1,0 +1,18 @@
+[Definition]
+failregex = \[client <HOST>\] File does not exist:.*(?i)admin.*
+            \[client <HOST>\] File does not exist:.*(?i)manager.*
+            \[client <HOST>\] File does not exist:.*(?i)setup.*
+            \[client <HOST>\] File does not exist:.*(?i)mysql.*
+            \[client <HOST>\] File does not exist:.*(?i)sqlweb.*
+            \[client <HOST>\] File does not exist:.*(?i)webdb.*
+            \[client <HOST>\] File does not exist:.*(?i)pma.*
+            \[client <HOST>\] File does not exist:.*(?i)vtigercrm.*
+            ^<HOST>.*GET.*(?i)admin.*
+            ^<HOST>.*GET.*(?i)manager.*
+            ^<HOST>.*GET.*(?i)mysql.*
+            ^<HOST>.*GET.*(?i)sqlweb.*
+            ^<HOST>.*GET.*(?i)webdb.*
+            ^<HOST>.*GET.*(?i)pma.*
+            ^<HOST>.*GET.*(?i)vtigercrm.*
+
+ignoreregex =
