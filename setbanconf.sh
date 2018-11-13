@@ -13,8 +13,8 @@ function copylocal() {
 }
 
 function copyconf() {
-  SRC="./${FILTER}/$1.conf"
-  DST="/etc/${FILTER}/$1.conf"
+  SRC="./${JAIL}/$1.conf"
+  DST="/etc/${JAIL}/$1.conf"
   echo "$SRC $DST"
   cp $SRC $DST
 }
