@@ -26,14 +26,14 @@ function copyjail() {
   cp $SRC $DST
 }
 
-function copyconf() {
+function copyprocess() {
   copylocal badbot
   copyconf badbot
   copyjail
 }
 
 if [ -d /etc/fail2ban ]; then
-  copyconf
+  copyprocess
   echo "copy complete"
 else
   echo "first install fail2ban"
