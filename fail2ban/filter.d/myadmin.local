@@ -7,7 +7,6 @@ failregex = \[client <HOST>\] File does not exist:.*(?i)admin.*
             \[client <HOST>\] File does not exist:.*(?i)webdb.*
             \[client <HOST>\] File does not exist:.*(?i)pma.*
             \[client <HOST>\] File does not exist:.*(?i)vtigercrm.*
-            ^<HOST>.*GET.*(?i)admin.*
             ^<HOST>.*GET.*(?i)manager.*
             ^<HOST>.*GET.*(?i)mysql.*
             ^<HOST>.*GET.*(?i)sqlweb.*
