@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#https://rpms.remirepo.net/wizard/
+# https://rpms.remirepo.net/wizard/
 # centos 6, php 5.4
 
 #install remirepo
@@ -9,7 +9,7 @@ yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
 #enable remirepo
 yum -y install yum-utils
-yum-config-manager --enable remi
+yum-config-manager --enable remi-php54
 
 yum -y update
 
