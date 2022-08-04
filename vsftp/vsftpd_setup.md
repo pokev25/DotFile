@@ -1,8 +1,8 @@
-## vsftpd 설정
+# vsftpd 설정
 
 vim /etc/vsftpd/vsftpd.conf
 
-```
+```conf
 anonymous_enable=NO
 
 chroot_local_user=YES
@@ -10,23 +10,26 @@ chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list
 allow_writeable_chroot=YES
 ```
+
 touch /etc/vsftpd/chroot_list
 
 방화벽
 
-```
+```ch
 firewall-cmd --permanent --add-service=ftp
 firewall-cmd --permanent --add-port=33000-34000/tcp
 firewall-cmd --reload
 ```
 
 CentOS 7 vsftp 3.*  로그인 에러 발생시
-```
+
+```conf
 allow_writeable_chroot=YES
 ```
 
 selinux 설정
-```
+
+```sh
 getsebool -a | grep ftp
 ftp_home_dir --> off
 setsebool -P tftp_home_dir on

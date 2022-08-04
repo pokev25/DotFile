@@ -1,34 +1,43 @@
+# nginx
+
 ## php-fpm 설정
 
-    vim /etc/php-fpm.d/www.conf
+/etc/php-fpm.d/www.conf
 
-    listen = /var/run/php-fpm.d/php5-fpm.sock
+```conf
+listen = /var/run/php-fpm.d/php5-fpm.sock
 
-    listen.owner = nginx
-    listen.group = nginx
-    listen.mode = 0666
+listen.owner = nginx
+listen.group = nginx
+listen.mode = 0666
 
-    user = nginx
-    group = nginx
+user = nginx
+group = nginx
+```
 
 ## php-fpm 세션 생성 경로 확인
 
-    /var/lib/php/session
-    chown nginx:nginx session
+```sh
+/var/lib/php/session
+chown nginx:nginx session
+```
 
 ## nginx gzip
-    gzip             on;
-    gzip_comp_level  2;
-    gzip_min_length  1000;
-    gzip_proxied     expired no-cache no-store private auth;
-    gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
-    
+
+```conf
+gzip             on;
+gzip_comp_level  2;
+gzip_min_length  1000;
+gzip_proxied     expired no-cache no-store private auth;
+gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+```
 
 ## nginx 설정 (homestead 설정을 일부 수정 80과 443 설정을 하나로함)
 
+```conf
     server {
         listen 80;
-	listen 443 ssl;
+    listen 443 ssl;
 
         server_name code.app;
         root "/home/public";
@@ -57,7 +66,7 @@
             fastcgi_index index.php;
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param REMOTE_ADDR $http_x_real_ip;  
+            fastcgi_param REMOTE_ADDR $http_x_real_ip;
             fastcgi_intercept_errors off;
             fastcgi_buffer_size 16k;
             fastcgi_buffers 4 16k;
@@ -71,6 +80,6 @@
         ssl_certificate     /etc/nginx/ssl/code.app.crt;
         ssl_certificate_key /etc/nginx/ssl/code.app.key;
     }
+```
 
 ## nginx load blancde
-
