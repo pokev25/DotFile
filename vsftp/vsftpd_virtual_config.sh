@@ -15,7 +15,10 @@ echo "Setting up Vsftpd with non-system user logins"
 echo ""
 #
 #
-mv  /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.orig
+BACKUP_FILE=/etc/vsftpd/vsftpd.conf.orig
+if [ ! -f "$BACKUP_FILE" ]; then
+    mv  /etc/vsftpd/vsftpd.conf $BACKUP_FILE
+fi
 cat <<EOFVSFTPD> /etc/vsftpd/vsftpd.conf
 anon_world_readable_only=NO
 anonymous_enable=NO
@@ -44,6 +47,7 @@ async_abor_enable=YES
 connect_from_port_20=YES
 dirlist_enable=NO
 download_enable=NO
+allow_writeable_chroot=YES
 EOFVSFTPD
 
 cat /etc/passwd | cut -d ":" -f 1 | sort > /etc/vsftpd/denied_users; mkdir /etc/vsftpd/users

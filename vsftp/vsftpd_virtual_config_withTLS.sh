@@ -28,7 +28,7 @@ echo '-------------------------------------------------------------------'
 # Check dependencies
 #
 PACKISMISSING=""
-PACKDEPENDENCIES="vsftpd db4-utils"
+PACKDEPENDENCIES="vsftpd libdb4-utils"
 for i in `echo $PACKDEPENDENCIES`; do
     /bin/rpm -q $i > /dev/null
     if [ "$?" != "0" ];then
@@ -60,7 +60,7 @@ make vsftpd.pem
 #
 # Set up vsftpd configuration
 #
-echo '' 
+echo ''
 printf ' Setting up Vsftpd with non-system user logins and TLS support ... '
 
 mv  /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.orig
@@ -111,7 +111,7 @@ EOFVSFTPD
 if [ ! -d /etc/vsftpd/users ]; then
 mkdir /etc/vsftpd/users
 fi
-cat /etc/passwd | cut -d ":" -f 1 | sort > /etc/vsftpd/denied_users; 
+cat /etc/passwd | cut -d ":" -f 1 | sort > /etc/vsftpd/denied_users;
 chmod 644 /etc/vsftpd/denied_users
 printf "Done.\n"
 

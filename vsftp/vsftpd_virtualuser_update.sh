@@ -41,7 +41,7 @@ function checkUser_Existence () {
                 USERNAMEOK=NO
            fi
            let C=$C+2;
-        done 
+        done
     fi
 }
 
@@ -70,7 +70,7 @@ echo '-------------------------------------------------------------------'
 # Check dependencies
 #
 PACKISMISSING=""
-PACKDEPENDENCIES="vsftpd db4-utils"
+PACKDEPENDENCIES="vsftpd libdb4-utils"
 for i in `echo $PACKDEPENDENCIES`; do
     /bin/rpm -q $i > /dev/null
     if [ "$?" != "0" ];then
@@ -96,12 +96,12 @@ printf " Enter Comment(user's full name) : "
 read FULLNAME
 printf " Account disabled ? (y/N)        : "
 read USERSTATUS
-echo " Home directory location         : ${HOMEDIR}/$USERNAME " 
+echo " Home directory location         : ${HOMEDIR}/$USERNAME "
 echo " Home directory permissions      : $USERNAME.$USERNAME | 750 | public_content_rw_t"
 echo " Login Shell                     : $SHELL "
 
 #
-# Create specific user configuration, based on 
+# Create specific user configuration, based on
 # vsftpd_virtualuser_config.tpl file.
 #
 # ... Do not change it in this script.
@@ -110,7 +110,7 @@ echo " Login Shell                     : $SHELL "
 # Update denied_users file
 #
 if [ "$USERSTATUS" == "y" ];then
-	echo $USERNAME >> $FTPCONF/denied_users	
+	echo $USERNAME >> $FTPCONF/denied_users
 else
 	sed -i -r -e "/^$USERNAME$/ d" $FTPCONF/denied_users
 fi
@@ -119,7 +119,7 @@ fi
 # Update accounts.db file.
 #
 sed -i -e "/$USERNAME/,+1 d" $ACCOUNTSDB_TMP
-echo $USERNAME >> $ACCOUNTSDB_TMP; 
+echo $USERNAME >> $ACCOUNTSDB_TMP;
 echo $PASSWORD >> $ACCOUNTSDB_TMP;
 rm -f $ACCOUNTSDB_DB
 db_load -T -t hash -f $ACCOUNTSDB_TMP $ACCOUNTSDB_DB
