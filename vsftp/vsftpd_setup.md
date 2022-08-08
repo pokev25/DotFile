@@ -11,13 +11,22 @@ chroot_list_file=/etc/vsftpd/chroot_list
 allow_writeable_chroot=YES
 ```
 
+```sh
+sed -i 's/anonymous_enable=YES/anonymous_enable=NO/g' /etc/vsftpd/vsftpd.conf
+sed -i 's/local_umask=002/local_umask=022/g' /etc/vsftpd/vsftpd.conf
+sed -i 's/#chroot_local_user=YES/chroot_local_user=YES/g' /etc/vsftpd/vsftpd.conf
+sed -i 's/#chroot_list_enable=YES/chroot_list_enable=YES/g' /etc/vsftpd/vsftpd.conf
+sed -i 's/#chroot_list_file=\/etc\/vsftpd\/chroot_list/chroot_list_file=\/etc\/vsftpd\/chroot_list/g' /etc/vsftpd/vsftpd.conf
+sed -i'' -r -e "/chroot_list_file=\/etc\/vsftpd\/chroot_list/a\allow_writeable_chroot=YES" /etc/vsftpd/vsftpd.conf
+```
+
 touch /etc/vsftpd/chroot_list
 
 방화벽
 
 ```ch
 firewall-cmd --permanent --add-service=ftp
-firewall-cmd --permanent --add-port=33000-34000/tcp
+firewall-cmd --permanent --add-port=64000-65535/tcp
 firewall-cmd --reload
 ```
 
@@ -54,24 +63,26 @@ vsftpd_virtualuser_add.sh
 원본은 CentOS 6 용이라서 CentOS 7 에서는 몇가지 오류가 발생하여
 스크립트를 CentOS 7 용으로 수정함
 
-## 두개의 포트 구동
+## 다중 포트 구성
 
-vsftpd.conf 를 vsftpd2.conf 로 복사 하고 사용할 포트를 지정하고
-다음과 같이 각각 구동한다.
+[https://www.mankier.com/8/vsftpd]
 
-```sh
-# 각각 구동
-systemctl start vsftpd
-systemctl start vsftpd.target
-# 둘다 실행되었는지 확인
-ps -ef | grep vsftp
+```txt
+1. Single daemon using default /etc/vsftpd/vsftpd.conf configuration file
+# systemctl {start,stop,...} vsftpd[.service]
+
+2. Single daemon using /etc/vsftpd/<conf-name>.conf
+# systemctl {start,stop,...} vsftpd@<conf-name>[.service]
+
+3. All instances together
+# systemctl {restart,stop} vsftpd.target
 ```
 
 ## 로컬 유저와 동시 사용
 
 기본 vsftpd 인증은 /etc/pam.d/vsftpd 파일이고
 스크립트를 실행하면서 생긴 파일은 /etc/pam.d/ftp파일이다.
-다음과 같이 스크립트를 수정해야 각각의 인증 체계로 로그인이 가능하다.
+관리 스크립트에 해당 내용 추가하였음
 
 ```sh
 vim /etc/pam.d/ftp
