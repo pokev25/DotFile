@@ -37,7 +37,7 @@ function checkUser_Existence () {
                 USERNAMEOK=NO
            fi
            let C=$C+2;
-        done 
+        done
     fi
 }
 
@@ -70,12 +70,12 @@ function removeUser () {
         db_load -T -t hash -f  $FTPCONF/accounts.tmp $FTPCONF/accounts.db
     printf "done. \n"
 
-    # Remove user from denied_users 
+    # Remove user from denied_users
     printf " Updating $FTPCONF/denied_users file ... "
         sed -i -e "/$USERNAME/ d" $FTPCONF/denied_users
     printf " done.\n"
-    
-    # Remove user from /etc/passwd and /etc/group. Also 
+
+    # Remove user from /etc/passwd and /etc/group. Also
     # remove related user information.
     printf " Removing user information from the system ... ";
         /usr/sbin/userdel -r $USERNAME
@@ -91,7 +91,7 @@ echo '-------------------------------------------------------------------'
 # Check dependencies
 #
 PACKISMISSING=""
-PACKDEPENDENCIES="vsftpd db4-utils"
+PACKDEPENDENCIES="vsftpd libdb4-utils"
 for i in `echo $PACKDEPENDENCIES`; do
     /bin/rpm -q $i > /dev/null
     if [ "$?" != "0" ];then

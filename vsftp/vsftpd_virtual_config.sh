@@ -56,8 +56,13 @@ mv /etc/vsftpd/denied_users.tmp /etc/vsftpd/denied_users
 chmod 644 /etc/vsftpd/denied_users
 
 cat <<EOFPAMFTP> /etc/pam.d/ftp
-auth    required pam_userdb.so db=/etc/vsftpd/accounts
-account required pam_userdb.so db=/etc/vsftpd/accounts
+#%PAM-1.0
+# virtual users
+auth    sufficient pam_userdb.so db=/etc/vsftpd/accounts
+account sufficient pam_userdb.so db=/etc/vsftpd/accounts
+#Local users
+auth    include    vsftpd
+account    include   vsftpd
 EOFPAMFTP
 
 cat <<EOFVSFTPU> /etc/vsftpd/users/$My_FTP_User
