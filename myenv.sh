@@ -23,7 +23,8 @@ fi
 
 # vim : from vimbootstrap
 if [ ! -f ~/.vimrc ]; then
-  curl 'https://vim-bootstrap.com/generate.vim' --data 'editor=vim' > ~/.vimrc
+  #curl 'https://vim-bootstrap.com/generate.vim' --data 'editor=vim' > ~/.vimrc
+  cp .vimrc ~/
   cp .vimrc.local ~/
   cp .vimrc.local.bundles ~/
 fi
